@@ -33,7 +33,6 @@ The report summarizes results using:
 - **Figure B:** Pooled Pearson correlations (event z-score vs final placing)
 - **Figures C & D:** Cross-conference variability summaries
 - **Figure E:** Heatmap of conference-by-event correlations (z-score method)
-
 <img width="749" height="653" alt="Screenshot 2026-02-22 151053" src="https://github.com/user-attachments/assets/97b67f84-14be-4e32-8335-b8231876741c" />
 
 
