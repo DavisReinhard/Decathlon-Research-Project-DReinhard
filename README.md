@@ -23,13 +23,17 @@ This project examines which decathlon events most consistently align with **fina
 Two scoring-table-free strategies are used:
 
 1. **Rank alignment (order-only):** Spearman’s rank correlation (ρ) between each event placing and final overall placing.
-2. **Within-meet standardization (magnitude):** Pearson’s correlation (r) between each event’s within-meet z-score and final overall placing. For timed events (lower is better), z-scores## Outputs / Figures
+2. **Within-meet standardization (magnitude):** Pearson’s correlation (r) between each event’s within-meet z-score and final overall placing. For timed events (lower is better), z-scores are multiplied by **−1** so that higher values consistently indicate better performance across all events.
+
+*Note:* For interpretability in figures (especially z-score correlations), overall placing is reverse-coded so higher values represent better outcomes (8 = best, 1 = worst).
+
+## Outputs / Figures
 The report summarizes results using:
 - **Figure A:** Pooled Spearman correlations (event placing vs final placing)
 - **Figure B:** Pooled Pearson correlations (event z-score vs final placing)
 - **Figures C & D:** Cross-conference variability summaries
-- **Figure E:** Heatmap of conference-by-event correlations (z-score method)y in figures, placing values are reverse-coded so higher values represent better outcomes (8 = best, 1 = worst).
-<img width="749" height="653" alt="Screenshot 2026-02-22 151053" src="https://github.com/user-attachments/assets/97b67f84-14be-4e32-8335-b8231876741c" />
+- **Figure E:** Heatmap of conference-by-event correlations (z-score method)
+
 <img width="749" height="653" alt="Screenshot 2026-02-22 151053" src="https://github.com/user-attachments/assets/97b67f84-14be-4e32-8335-b8231876741c" />
 
 
