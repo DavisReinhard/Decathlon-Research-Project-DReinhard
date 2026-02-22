@@ -35,5 +35,16 @@ The report summarizes results using:
 - **Figure E:** Heatmap of conference-by-event correlations (z-score method)
 <img width="749" height="653" alt="Screenshot 2026-02-22 151053" src="https://github.com/user-attachments/assets/97b67f84-14be-4e32-8335-b8231876741c" />
 
+## Repository Contents
+- `Decathlon Project DReinhard.ipynb` — Main notebook (analysis + figures)
+- Conference meet folders (e.g., `Big 10 Meets/`, `ACC Meets/`, `SEC Meets/`, `Big 12 Meets/`) — Input CSV meet tables
+- `README.md` — Project overview
 
+## How to Run
+1. Download/clone the repository.
+2. Open `Decathlon Project DReinhard.ipynb` in Jupyter Notebook.
+3. Run cells from top to bottom to reproduce analyses and figures.
+
+## Notes
+Initial extraction and portions of early data cleaning were completed with AI assistance (LLM-supported parsing/formatting). The resulting CSVs were reviewed for consistency. Remaining cleaning steps and all analyses/visualizations were performed in the notebook.
 
