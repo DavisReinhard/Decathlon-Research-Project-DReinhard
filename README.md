@@ -40,10 +40,12 @@ The report summarizes results using:
 - Conference meet folders (Big 10 Meets/, ACC Meets/, SEC Meets/, Big 12 Meets/) -Input CSV meet tables
 - **README.md** - Project overview
 
-## Run Dashboard
+## Run Dashboard (Notebook Pre-Rendered Figures)
 1. Install dependencies:
    `pip install -r requirements.txt`
-2. Start Streamlit:
+2. Export visuals from the notebook source:
+   `python export_notebook_figures.py`
+3. Start Streamlit:
    `streamlit run app.py`
 
 ## Notes
