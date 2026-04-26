@@ -45,6 +45,23 @@ The report summarizes results using:
 2. Open **Decathlon Project DReinhard.ipynb** in Jupyter Notebook.
 3. Run cells from top to bottom to reproduce analyses and figures.
 
+## Run with Docker
+1. Build the image:
+   `docker build -t decathlon-notebook .`
+2. Start the container:
+   `docker run --rm -p 8888:8888 -v "${PWD}:/workspace" decathlon-notebook`
+3. Open Jupyter Lab in your browser:
+   [http://localhost:8888](http://localhost:8888)
+4. Open **Decathlon Project DReinhard.ipynb** and run cells top to bottom.
+
+### Run with Docker Compose
+1. Build and start in the background:
+   `docker compose up -d --build`
+2. Open Jupyter Lab in your browser:
+   [http://localhost:8888](http://localhost:8888)
+3. Stop it when finished:
+   `docker compose down`
+
 ## Notes
 Initial extraction and portions of early data cleaning were completed with AI assistance (LLM-supported parsing/formatting). The resulting CSVs were reviewed for consistency. Remaining cleaning steps and all analyses/visualizations were performed in the notebook.
 

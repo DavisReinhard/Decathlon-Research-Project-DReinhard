@@ -1,0 +1,12 @@
+services:
+  notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: decathlon-notebook
+    container_name: decathlon-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/workspace
+    restart: unless-stopped
