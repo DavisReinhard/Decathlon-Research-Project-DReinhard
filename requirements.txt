@@ -1,4 +1,8 @@
 pandas
 numpy
-plotly
+scipy
+matplotlib
+nbformat
+nbconvert
+ipykernel
 streamlit
