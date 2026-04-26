@@ -59,12 +59,15 @@ def z_within(s):
 def load_data():
     base_dir = Path(__file__).resolve().parent
     frames = []
+    total_csvs_loaded = 0
 
     for group, folder_name in DATA_FOLDERS.items():
         data_dir = base_dir / folder_name
+        if not data_dir.exists():
+            continue
         files = sorted(data_dir.glob("*.csv"))
         if len(files) == 0:
-            raise FileNotFoundError(f"No CSV files found for {group} in: {data_dir}")
+            continue
 
         for f in files:
             tmp = pd.read_csv(f)
@@ -77,6 +80,10 @@ def load_data():
             group_tag = group.replace(" ", "").replace("-", "")
             tmp["meet_id"] = f"{group_tag}_{f.stem}"
             frames.append(tmp)
+            total_csvs_loaded += 1
+
+    if total_csvs_loaded == 0:
+        raise ValueError("No CSV files found in configured data folders.")
 
     df_all = pd.concat(frames, ignore_index=True)
     df = df_all.copy()
@@ -87,13 +94,18 @@ def build_analysis(df):
     df = df.copy()
     event_cols = ["100m", "LJ", "SP", "HJ", "400m", "110mH", "DT", "PV", "JT", "1500m"]
     bad_tokens = {"DNS", "DNF", "NH", "NT", "NM", "NP", "DQ", "NA", "-", "--", ""}
+    invalid_row_mask = pd.Series(False, index=df.index)
 
     for col in event_cols:
         s = df[col]
         ss = s.astype(str).str.strip()
         mask = s.isna() | ss.str.upper().isin(bad_tokens)
-        if mask.any():
-            raise ValueError(f"Invalid event marks found in column '{col}'.")
+        invalid_row_mask = invalid_row_mask | mask
+
+    dropped_rows = int(invalid_row_mask.sum())
+    if dropped_rows > 0:
+        df = df.loc[~invalid_row_mask].copy()
+        st.caption(f"Dropped {dropped_rows} rows with invalid event marks.")
 
     df["overall_place"] = -df["Final Place"]
     df["1500m_sec"] = df["1500m"].apply(time_to_seconds_strict)
