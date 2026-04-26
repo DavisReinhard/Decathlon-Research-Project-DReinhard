@@ -1,4 +1,4 @@
 pandas
 numpy
-matplotlib
-jupyterlab
+plotly
+streamlit
